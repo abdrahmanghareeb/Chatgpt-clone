@@ -6,6 +6,7 @@ import 'package:chatgpt_clone/Widgets/ChatWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
@@ -24,6 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     textEditingController = TextEditingController();
     super.initState();
+    print(dotenv.env['APIKEY']);
   }
 
   @override

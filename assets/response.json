@@ -1,0 +1,39 @@
+//{"contents":[
+//  {"role": "user",
+//    "parts":[{"text": "I want to learn flutter how can you help"}]}]
+//}
+
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "**Getting Started with Flutter**\n\n**1. Install Flutter SDK:**\n* Visit flutter.dev/docs/get-started/install\n* Follow the instructions for your operating system.\n\n**2. Create a Flutter Project:**\n* Open a terminal or command prompt.\n* Navigate to a directory where you want to create the project.\n* Run the following command:\n```\nflutter create project_name\n```\n\n**3. Explore the Project:**\n* Open the project in your preferred code editor.\n* Become familiar with the project structure and key files.\n\n**4. Run the App:**\n* In the terminal, navigate to the project directory.\n* Run the following command to run the app:\n```\nflutter run\n```\n\n**5. Learn Flutter Basics:**\n* Visit flutter.dev/docs/get-started/flutter-tutorial\n* Go through the official Flutter tutorial to understand the basics.\n* Explore the Flutter documentation and learn about widgets, layout, styling, and state management.\n\n**Additional Resources**\n\n* **Flutter Documentation:** https://flutter.dev/docs\n* **Flutter Tutorial:** https://flutter.dev/docs/get-started/flutter-tutorial\n* **Flutter Codelabs:** https://codelabs.developers.google.com/flutter\n* **Flutter Developer Guides:** https://flutter.dev/docs/development\n\n**Tips**\n\n* Practice regularly by building simple apps.\n* Join the Flutter community on platforms like Stack Overflow and Discord.\n* Attend online workshops or courses to accelerate your learning.\n* Stay updated with the latest Flutter news and releases.\n\n**Additional Assistance**\n\nIf you encounter any specific difficulties or need further assistance, feel free to ask specific questions in a dedicated forum or platform like Stack Overflow or the Flutter subreddit."
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ]
+}
