@@ -1,5 +1,6 @@
 import 'package:chatgpt_clone/Constants/colors.dart';
 import 'package:chatgpt_clone/Constants/dummy.dart';
+import 'package:chatgpt_clone/Services/API_Service.dart';
 import 'package:chatgpt_clone/Services/AssetsManager.dart';
 import 'package:chatgpt_clone/Services/DropDownService.dart';
 import 'package:chatgpt_clone/Widgets/ChatWidget.dart';
@@ -8,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:http/http.dart';
 
 
 
@@ -18,14 +21,15 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   String onChange = "";
+  var api_service;
 
-  late TextEditingController textEditingController;
+  var  textEditingController;
 
   @override
   void initState() {
     textEditingController = TextEditingController();
     super.initState();
-    print(dotenv.env['APIKEY']);
+   // print(dotenv.env['APIKEY']);
   }
 
   @override
@@ -52,15 +56,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: ListView.separated(
                     physics: BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
-                  if(chatMessages[index]["chatIndex"] == 1) {
-                   return ChatWidget(
-                   //     likeFunction:() {
-                   //   isLikedPressed = !isLikedPressed;
-                   //   },
-                   //     unlikeFunction: (){
-                   //       isUnLikedPressed = !isUnLikedPressed;
-                   // },
-                       index: index, imageAsset: AssetsManager.chat_logo, color: textFieldColor , isResponse :true);
+                  if(api_service.response["candidates"][0]["content"] == 1) {
+                   return ChatWidget(index: index, imageAsset: AssetsManager.chat_logo, color: textFieldColor , isResponse :true);
                   }
                   else{
                    return ChatWidget(index: index, imageAsset: AssetsManager.person, color: appThemeColor, isResponse :false);}
@@ -96,7 +93,11 @@ class _ChatScreenState extends State<ChatScreen> {
                         hintStyle: TextStyle(color: textColor),
                         suffixIcon: IconButton(
                           icon: Icon(Icons.send, color: textColor),
-                          onPressed: () {},
+                          onPressed: () {
+                            api_service = Api_Service("${textEditingController.text}");
+                           // var api_service = Api_Service();
+                           api_service.getResponse().then((value) =>print("sussesfull to fetch data"));
+                          },
                         )),
                   ),
                 ),
